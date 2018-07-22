@@ -3,9 +3,10 @@
 
 Node.js Web Framework
 
-[![Build Status](https://travis-ci.org/polixjs/polix.svg?branch=master)](https://travis-ci.org/polixjs/polix)
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/polix)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://www.npmjs.com/package/polix)
+[![Travis](https://img.shields.io/travis/polixjs/polix.svg?style=for-the-badge)](https://travis-ci.org/polixjs/polix)
+[![Node Version](https://img.shields.io/badge/node-%3E=9.0.0-brightgreen.svg?longCache=true&style=for-the-badge)](https://www.npmjs.com/package/polix)
+[![npm](https://img.shields.io/npm/v/polix.svg?style=for-the-badge)](https://www.npmjs.com/package/polix)
+
 
 `polix`是基于`koa v2.5.0`的`IOC`、插件式开发框架,和平常的`Node.js Web Framework`相比，它无需另外绑定路由集合、可拓展、开发简单，依照`java`的著名依赖注入框架`spring`来制作，让开发者专注于逻辑。`polix`采用多服务多进程架构来保证服务的稳定和快速响应能力。`polix`的中间件和`koa v2.x`的中间件保持兼容。`polix`提供`Dockerfile`+`docker-compose.yml`方案进行部署，默认使用的`ORM`是`sequelize`(后续会提供`polix-orm`)。开发者可以选择ES6/7/8 或者 TypeScript来进行开发。
 
