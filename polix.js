@@ -2,7 +2,7 @@ const app = require('./application');
 const Controller = require('./core/controllers');
 const Service = require('./core/services');
 const log = require('./lib/log');
-const pkg = require('../package.json');
+const pkg = require('./package.json');
 const load = require('./load');
 const { GET, POST, PUT, DEL } = require('./core/decorator');
 

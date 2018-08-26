@@ -1,6 +1,6 @@
 {
   "name": "polix",
-  "version": "0.0.15",
+  "version": "0.0.18",
   "description": "Node.js Web Framework",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,16 @@
     "framework"
   ],
   "files": [
-    "app/",
+    "config/",
+    "core/",
+    "extends/",
+    "lib/",
+    "middleware/",
+    "utils/",
+    "index.js",
+    "polix.js",
+    "load.js",
+    "application.js",
     "index.d.ts"
   ],
   "author": "zhoumq",
