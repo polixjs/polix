@@ -2,7 +2,7 @@
   "name": "polix",
   "version": "0.0.15",
   "description": "Node.js Web Framework",
-  "main": "app/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
@@ -59,6 +59,7 @@
     "vary": "^1.0.0"
   },
   "devDependencies": {
+    "mocha": "^5.2.0",
     "should": "^13.2.1"
   }
 }
