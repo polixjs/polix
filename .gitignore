@@ -7,3 +7,4 @@ examples/*/yarn.lock
 examples/*/package-lock.json
 package-lock.json
 .vscode
+example
