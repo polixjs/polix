@@ -2,12 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const app = require('./application');
 const { Tool } = require('./utils/');
-const { PATH } = require('./lib/enum');
+const { PATH, polix } = require('./lib/enum');
 
-const TYPE = Tool.buildEnum({
-  'controller': 'controller',
-  'service': 'service',
-});
 
 /**
  * 加载service 和 controller
@@ -48,7 +44,8 @@ exports.loadPlugin = function(){
 
 exports.load = function(){
   exports.loadMiddware();
-  exports.loadBase(TYPE.controller);
-  exports.loadBase(TYPE.service);
+  exports.loadBase(polix.CONTROLLER);
+  exports.loadBase(polix.SERVICE);
+  // exports.loadBase(polix.MODEL);
   exports.loadPlugin();
 };

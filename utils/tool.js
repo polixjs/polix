@@ -20,14 +20,14 @@ exports.isType = function (type, obj) {
  * @param args 属性数组
  * @param conf 数据属性配置
  */
-exports.buildProperties = function(args,conf){
+exports.buildProperties = function(args, conf, v){
   let obj = {};
   if(!exports.isType('Array',args)){
     throw new TypeError(`'${args}' is not Array`);
   }
   args.map(item => {
     conf = JSON.parse(JSON.stringify(conf));
-    conf.value = item;
+    conf.value = v || item;
     obj[item] = conf;
   });
   return obj;

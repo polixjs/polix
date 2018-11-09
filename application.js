@@ -9,28 +9,17 @@ class App {
 
   constructor(){
     conf.setRoot(path.dirname(require.main.filename));
-    Object.defineProperties(this,{
-      _service: {
+    Object.defineProperties(this, Tool.buildProperties(
+      ['_service', '_controller', '_module', '_store'],
+      {
         writable: false,
         configurable: false,
-        enumerable:false,
-        value: {}
-      },
-      _controller: {
-        writable: false,
-        configurable: false,
-        enumerable:false,
-        value: {}
-      },
-      _store: {
-        writable: false,
-        configurable: false,
-        enumerable:false,
-        value: {}
-      }
-    });
+        enumerable: false
+      }, {}
+    ));
     this.service = {};
     this.controller = {};
+    this.model = {};
     this.ctx = new ctx();
     this.app = {};
     middleware.bind(this.ctx);
@@ -121,6 +110,25 @@ class App {
 
   getController(key){
     return this._controller[key];
+  }
+
+  addModel(key, model) {
+    let self = this;
+    this._model[key] = model;
+    Object.defineProperty(this.model,key,{
+      get(){
+        self._store[`${enumType.MODEL}-${key}`] = self._store[`${enumType.MODEL}-${key}`] || new self._model[key]();
+        return self._store[`${enumType.MODEL}-${key}`];
+      },
+      set(){
+        throw new TypeError(' this function readonly ');
+      }
+    });
+    return this;
+  }
+
+  getModel(key) {
+    return this._model[key];
   }
 
   list(){

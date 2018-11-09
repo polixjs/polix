@@ -5,9 +5,9 @@ install:
 	@npm i
 
 eslint:
-	eslint .
+	@eslint .
 
 test:
-	NODE_ENV=test $(BIN_MOCHA) -R spec -t 60000 --exit -r ./test/env.js $(ITEMS);
+	@NODE_ENV=test $(BIN_MOCHA) -R spec -t 60000 --exit -r ./test/env.js $(ITEMS);
 
 .PHONY: install test
