@@ -1,6 +1,9 @@
 const moment = require('moment');
 const _ = require('./lodash');
 
+
+
+
 /**
  * 判断对象类型
  * eg:
@@ -14,6 +17,9 @@ const _ = require('./lodash');
 exports.isType = function (type, obj) {
   return Object.prototype.toString.call(obj) === `[object ${type}]`
 };
+
+
+
 
 /**
  * 生成defineProperties参数
@@ -34,6 +40,8 @@ exports.buildProperties = function(args, conf, v){
 };
 
 
+
+
 /**
  * toString类型
 */
@@ -45,6 +53,9 @@ exports.TYPE = Object.defineProperties({},exports.buildProperties(
     writable: false
   }
 ));
+
+
+
 
 /**
  * 生成只读enum对象
@@ -68,6 +79,9 @@ exports.buildEnum = function(obj) {
   });
 };
 
+
+
+
 /**
  * 转换日期
  * "2018-03-16T10:20:30.000Z" => 2018-03-10 09:30:26
@@ -76,6 +90,9 @@ exports.buildEnum = function(obj) {
 exports.format = function(dateStr,type){
   return moment(Date.parse(dateStr)).format(type || 'YYYY-MM-DD HH:mm:ss');
 };
+
+
+
 
 /**
  * 首字母大写
@@ -87,6 +104,9 @@ exports.firstUpperCase = function(str){
     return s.toUpperCase();
   });
 };
+
+
+
 
 /**
  * 将 callback 转换成 promise
@@ -112,6 +132,9 @@ exports.promisify = function () {
     fn.apply(null, args);
   });
 };
+
+
+
 
 /**
  * 判断对象是否为初始值

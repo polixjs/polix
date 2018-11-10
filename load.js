@@ -11,7 +11,12 @@ const { PATH, polix } = require('./lib/enum');
 exports.loadBase = function(type){
   let filePath = app.config.root;
   filePath = path.join(filePath,type);
-  let files = fs.readdirSync(filePath);
+  let files = [];
+  try {
+    files = fs.readdirSync(filePath);
+  } catch (error) {
+    // ignore error
+  }
   files.map(file => {
     app[`add${Tool.firstUpperCase(type)}`](file.substring(0,file.length - 3),require(path.join(filePath,file)));
   });
@@ -46,6 +51,6 @@ exports.load = function(){
   exports.loadMiddware();
   exports.loadBase(polix.CONTROLLER);
   exports.loadBase(polix.SERVICE);
-  // exports.loadBase(polix.MODEL);
+  exports.loadBase(polix.MODEL);
   exports.loadPlugin();
 };
