@@ -10,7 +10,7 @@ class App {
   constructor(){
     conf.setRoot(path.dirname(require.main.filename));
     Object.defineProperties(this, Tool.buildProperties(
-      ['_service', '_controller', '_module', '_store'],
+      ['_service', '_controller', '_model', '_store', '_entity'],
       {
         writable: false,
         configurable: false,
@@ -20,6 +20,7 @@ class App {
     this.service = {};
     this.controller = {};
     this.model = {};
+    this.entity = {};
     this.ctx = new ctx();
     this.app = {};
     middleware.bind(this.ctx);
@@ -129,6 +130,20 @@ class App {
 
   getModel(key) {
     return this._model[key];
+  }
+
+  addEntity(key, entity) {
+    let self = this;
+    this._entity[key] = entity;
+    Object.defineProperty(this.entity, key, {
+      get() {
+        return self._entity[key];
+      },
+      set() {
+        throw new TypeError(' this function readonly ');
+      }
+    });
+    return this;
   }
 
   list(){

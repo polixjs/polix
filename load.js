@@ -52,5 +52,6 @@ exports.load = function(){
   exports.loadBase(polix.CONTROLLER);
   exports.loadBase(polix.SERVICE);
   exports.loadBase(polix.MODEL);
+  exports.loadBase(polix.ENTITY);
   exports.loadPlugin();
 };

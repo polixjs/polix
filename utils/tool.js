@@ -33,7 +33,7 @@ exports.buildProperties = function(args, conf, v){
   }
   args.map(item => {
     conf = JSON.parse(JSON.stringify(conf));
-    conf.value = v || item;
+    conf.value = v ? Object.create(null) : item;
     obj[item] = conf;
   });
   return obj;
