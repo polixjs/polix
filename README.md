@@ -22,10 +22,12 @@ $ npm i polix --save
 
 ## Getting Started
 > 使用`polix-cli`初始化应用
-```bash
+``` bash
 $ npm i polix-cli -g
-$ pol init example && cd example
-$ make build && make dev
+$ pol init example
+$ cd example
+$ make build
+$ make run-dev
 ```
 
 ## Service
