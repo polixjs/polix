@@ -17,7 +17,7 @@ function build(type = HTTP.GET){
     return function(...args){
       args[1] = path;
       args.push(type);
-      return bind(...args); 
+      return bind(...args);
     };
   }
 }
@@ -29,8 +29,12 @@ function bind(target, key, descriptor, type){
   const method = descriptor.value;
   descriptor.value = (...args) => {
     let reqCtx = args[0];
-    let reqBody = Object.assign({}, reqCtx.params, reqCtx.request.query, reqCtx.request.body);
-    args.unshift(reqBody);
+    const reqParam = {
+      query: reqCtx.query,
+      router: reqCtx.params,
+      body: reqCtx.request.body,
+    };
+    args.unshift(reqParam);
     return method.apply(app, args);
   };
   router[type](`/${base}/${key}`, descriptor.value);
