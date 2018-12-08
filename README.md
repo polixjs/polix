@@ -66,7 +66,8 @@ class UserController extends Controller {
   // POST /user/addUser
   @POST
   async addUser(param, ctx){
-    await this.service.user.addUser(param.userId,param.name);
+    const {body} = param;
+    await this.service.user.addUser(body.userId, body.name);
     ctx.body = {
       result: 'ok'
     };
@@ -75,7 +76,8 @@ class UserController extends Controller {
   // GET /user/getUser
   @GET
   async getUser(param, ctx){
-    let user = await this.service.user.getUser(param.userId);
+    const {query} = param;
+    let user = await this.service.user.getUser(query.userId);
     ctx.body = {
       user
     };
@@ -108,9 +110,10 @@ class UserController extends Controller {
   // GET /user/status/:userId
   @GET('status/:userId')
   async getStatus(param, ctx){
+    const {router} = param;
     ctx.body = {
       status: true,
-      userId: param.userId
+      userId: router.userId
     };
   }
 
