@@ -184,7 +184,7 @@ exports.curl = {
 ## Start
 
 ```bash
-$ make build && make dev
+$ make dev
 ```
 
 ## Author
