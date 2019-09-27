@@ -33,6 +33,7 @@ function bind(target, key, descriptor, type){
       query: reqCtx.query,
       router: reqCtx.params,
       body: reqCtx.request.body,
+      headers: reqCtx.headers,
     };
     args.unshift(reqParam);
     return method.apply(app, args);
